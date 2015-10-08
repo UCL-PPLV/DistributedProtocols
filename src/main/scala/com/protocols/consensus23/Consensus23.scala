@@ -2,7 +2,7 @@ package com.protocols.consensus23
 
 import akka.actor._
 import com.sun.xml.internal.ws.resources.ModelerMessages
-import scala.collection.mutable.{Set => MSet}
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * @author ilya
@@ -26,7 +26,7 @@ case class DoTell[A](round: Int, value: Option[A], id: ActorRef) extends RoundMe
 /**
  * Storing local results ofr a round @round 
  */
-case class LocalRoundResults[A](round: Int, num: Int, collected: MSet[(ActorRef, A)])
+case class LocalRoundResults[A](round: Int, num: Int, collected: ArrayBuffer[(ActorRef, A)])
 
 
 class Consensus23Node[A](val myValue: A) extends Actor {
@@ -42,7 +42,7 @@ class Consensus23Node[A](val myValue: A) extends Actor {
       // Broadcast  messages
       for (aref <- arefs) aref ! OfferValue(round, myValue, context.self)
       // transition to the collecting phase
-      val lrr: LocalRoundResults[A] = LocalRoundResults(round, arefs.size, MSet.empty)
+      val lrr: LocalRoundResults[A] = LocalRoundResults(round, arefs.size, ArrayBuffer.empty)
       context.become(collectResults(lrr), discardOld = true)
 
     // ask for the result of the previous round  
