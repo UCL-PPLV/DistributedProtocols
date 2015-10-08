@@ -1,7 +1,6 @@
 package com.protocols.consensus23
 
 import akka.actor._
-import com.sun.xml.internal.ws.resources.ModelerMessages
 import scala.collection.mutable.ArrayBuffer
 
 /**
@@ -45,7 +44,7 @@ class Consensus23Node[A](val myValue: A, val startingRound : Int) extends Actor 
 
     // ask for the result of the previous round  
     case DoAsk(round, id) if round + 1 == expectedRound =>
-      // resond with the last message
+      // respond with the last taken result
       id ! DoTell(round, storedValue, context.self)
   }
 
