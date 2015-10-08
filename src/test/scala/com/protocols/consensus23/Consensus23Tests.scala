@@ -3,19 +3,20 @@ package com.protocols.consensus23
 import akka.actor._
 import akka.testkit.{ImplicitSender, TestKit}
 import org.scalatest._
+import scala.concurrent.duration._
 
 
 /**
  * @author ilya
  */
 
-class TestNode[A](val round: Int, val expectedResult: Option[A]) extends Actor {
-  override def receive = {
-    case DoTell(r, vopt, id) if r == round =>
-      println(s"At the round $round, actor $id responds with the stored value $vopt")
-      assert(vopt  == expectedResult, s"the result of consensus should be $expectedResult")
-  }
-}
+//class TestNode[A](val round: Int, val expectedResult: Option[A]) extends Actor {
+//  override def receive = {
+//    case DoTell(r, vopt, id) if r == round =>
+//      println(s"At the round $round, actor $id responds with the stored value $vopt")
+//      assert(vopt == expectedResult, s"the result of consensus should be $expectedResult")
+//  }
+//}
 
 class Consensus23Tests(_system: ActorSystem) extends TestKit(_system) with ImplicitSender with WordSpecLike with MustMatchers with BeforeAndAfterAll {
 
@@ -26,26 +27,49 @@ class Consensus23Tests(_system: ActorSystem) extends TestKit(_system) with Impli
   }
 
   s"all nodes" must {
-    s"agree on the same value when is in majority (Some(5))" in {
+    s"agree on the same value when is in 2/3-majority (Some(5))" in {
       val values = List(1, 2, 5, 5, 5, 5, 5, 5, 4)
-
-      val nodes = for (i <- values.indices)
-        yield {
-          val v = values(i)
-          system.actorOf(Props(classOf[Consensus23Node[Int]], v), name = s"node-$i-offering-$v")
-        }
-
-      val round = 0
-      val expectedResult = Some(5)
-      val testNode = system.actorOf(Props(classOf[TestNode[Int]], round, expectedResult), name = s"test-node-round-$round")
-
-      // Start the round
-      for (node <- nodes) node ! DoSend(round, nodes)
-
-      // ask the nodes for the result, so they would respond to the test node
-      for (node <- nodes) node ! DoAsk(round, testNode)
-
+      setupAndTestRound(0, values, Some(5))
     }
+
+    s"agree on the same non-taken value" in {
+      val values = List(1, 2, 5, 5, 5, 5, 4)
+      setupAndTestRound(1, values, None)
+    }
+
   }
 
+
+  def setupAndTestRound[A](round: Int, values: List[A], expectedResult: Option[A]): Unit = {
+    val num = values.size
+    println(s"Round: $round, Number of nodes: $num")
+
+    val nodes: Seq[ActorRef] = generateNodes(round, values)
+
+    // Start the round
+    for (node <- nodes) node ! DoSend(round, nodes)
+
+    Thread.sleep(200)
+
+    // ask the nodes for the result, so they would respond to the test node
+    for (node <- nodes) node ! DoAsk(round, self)
+
+    Thread.sleep(200)
+
+    val res = receiveN(nodes.size, 30 seconds).asInstanceOf[Seq[DoTell[A]]]
+
+    for (DoTell(r, vopt, id) <- res) {
+      assert(r == round, s"Wrong round: $r received when $round expected")
+      println(s"At the round $round, actor $id responds with the stored value $vopt")
+      assert(vopt == expectedResult, s"the result of consensus should be $expectedResult")
+    }
+    println()
+
+  }
+
+  def generateNodes[A](round: Int, values: List[A]): IndexedSeq[ActorRef] =
+    for (i <- values.indices) yield {
+      val v = values(i)
+      system.actorOf(Props(classOf[Consensus23Node[Int]], v, round), name = s"round-$round-node-$i-offering-$v")
+    }
 }

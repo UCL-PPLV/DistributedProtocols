@@ -29,9 +29,9 @@ case class DoTell[A](round: Int, value: Option[A], id: ActorRef) extends RoundMe
 case class LocalRoundResults[A](round: Int, num: Int, collected: ArrayBuffer[(ActorRef, A)])
 
 
-class Consensus23Node[A](val myValue: A) extends Actor {
+class Consensus23Node[A](val myValue: A, val startingRound : Int) extends Actor {
 
-  private var expectedRound = 0
+  private var expectedRound = startingRound
   private var storedValue: Option[A] = None
 
   override def receive = init
