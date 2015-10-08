@@ -6,25 +6,23 @@ import scala.collection.mutable.ArrayBuffer
 
 /**
  * @author ilya
- *
- *
- *         Implementation of the 2/3-consensus protocol via Akka actors
+ * Implementation of the 2/3-consensus protocol via Akka actors
  */
 
 /**
- * Synchrony via rounds: send or update
+ * Synchrony via rounds
  */
 sealed trait RoundMessage {
   val round: Int
 }
+
+// Different kinds of messages (all parametrized by rounds)
 case class DoSend(round: Int, arefs: Seq[ActorRef]) extends RoundMessage
 case class DoAsk(round: Int, id: ActorRef) extends RoundMessage
 case class DoTell[A](round: Int, value: Option[A], id: ActorRef) extends RoundMessage
 
-
-
 /**
- * Storing local results ofr a round @round 
+ * Storing local results for a round
  */
 case class LocalRoundResults[A](round: Int, num: Int, collected: ArrayBuffer[(ActorRef, A)])
 
@@ -59,17 +57,18 @@ class Consensus23Node[A](val myValue: A, val startingRound : Int) extends Actor 
 
   def collectResults(res: LocalRoundResults[A]): Receive = {
 
-    // Ignore message from other rounds
-    case OfferValue(round, _, _) if round != res.round =>
-
-    case OfferValue(_, v, id) =>
+    // Only process messages from this round
+    case OfferValue(round, v, id) if round == res.round =>
       // record the value
       res.collected += ((id, v))
       // if collected all results update and switch to the initial phase
       if (res.num == res.collected.size) {
+
         decideAndUpdate(res.collected.map(_._2).toSeq)
-        // update round
+
+        // increment round count
         expectedRound = res.round + 1
+
         // get back to the initial state
         context.become(init)
       }
