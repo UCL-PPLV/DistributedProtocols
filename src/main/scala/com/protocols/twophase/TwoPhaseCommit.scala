@@ -19,7 +19,7 @@ case class No(round: Int, node: ActorRef) extends TwoPhaseMessage
 case class Commit(round: Int, coord: ActorRef) extends TwoPhaseMessage
 case class Ack(round: Int, node: ActorRef) extends TwoPhaseMessage
 
-// Testing message
+// Testing messages
 case class Ask(round: Int, node: ActorRef) extends TwoPhaseMessage
 case class Resp[A](round: Int, node: ActorRef, v: Option[A]) extends TwoPhaseMessage
 case class Dunno(round: Int, node: ActorRef) extends TwoPhaseMessage

@@ -17,11 +17,11 @@ class TwoPhaseCommitTests(_system: ActorSystem) extends TestKit(_system) with Im
   }
 
   s"A decision" must {
-    s"should be taken if all nodes agree on the same value (Some(5))" in {
+    s"be taken if all nodes agree on the same value (Some(5))" in {
       setupAndTestRound(0, 7, 5, (_: Int) => (Int) => true, Some(5))
     }
 
-    s"shouln't be taken if at least one node disagrees" in {
+    s"not be taken if at least one node disagrees" in {
       setupAndTestRound(1, 6, 5, (z: Int) => (Int) => z != 3, None)
     }
 

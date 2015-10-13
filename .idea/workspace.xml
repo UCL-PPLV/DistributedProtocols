@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d292634-ad1b-4100-84b2-06191354ec30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/com/protocols/twophase/TwoPhaseCommit.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/com/protocols/twophase/TwoPhaseCommitTests.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/protocols/consensus23/Consensus23.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/protocols/consensus23/Consensus23.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala" afterPath="$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/protocols/twophase/TwoPhaseCommit.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/protocols/twophase/TwoPhaseCommit.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/com/protocols/twophase/TwoPhaseCommitTests.scala" afterPath="$PROJECT_DIR$/src/test/scala/com/protocols/twophase/TwoPhaseCommitTests.scala" />
     </list>
     <ignored path="DistributedProtocols.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Consensus23Tests.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Consensus23Tests.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.46127564">
+              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <element signature="e#35#54#0" expanded="true" />
               </folding>
@@ -53,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TwoPhaseCommitTests.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TwoPhaseCommitTests.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/protocols/twophase/TwoPhaseCommitTests.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41002277">
-              <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="e#32#51#0" expanded="true" />
               </folding>
@@ -69,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/protocols/twophase/TwoPhaseCommit.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#32#51#0" expanded="true" />
               </folding>
@@ -114,7 +111,7 @@
         <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-testkit_2.11/srcs/akka-testkit_2.11-2.3.9-sources.jar!/akka/testkit/TestKit.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="625" column="6" selection-start-line="625" selection-start-column="6" selection-end-line="625" selection-end-column="6" />
+              <caret line="717" column="13" selection-start-line="717" selection-start-column="13" selection-end-line="717" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -156,10 +153,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/protocols/OfferMessage.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/protocols/consensus23/OfferMessage.scala" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/protocols/consensus23/Consensus23.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/protocols/twophase/TwoPhaseCommit.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/protocols/twophase/TwoPhaseCommitTests.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala" />
       </list>
     </option>
   </component>
@@ -311,6 +308,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="twophase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwoPhaseCommit.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -714,7 +715,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15078585" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32938564" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32938564" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938564" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1088,36 +1089,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/protocols/consensus23/Consensus23.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.6-sources.jar!/scala/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="34" />
-          <folding>
-            <element signature="e#35#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-testkit_2.11/srcs/akka-testkit_2.11-2.3.9-sources.jar!/akka/testkit/TestKit.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="625" column="6" selection-start-line="625" selection-start-column="6" selection-end-line="625" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1130,22 +1105,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-testkit_2.11/srcs/akka-testkit_2.11-2.3.9-sources.jar!/akka/testkit/TestKit.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="717" column="13" selection-start-line="717" selection-start-column="13" selection-end-line="717" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/protocols/twophase/TwoPhaseCommit.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#32#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/protocols/consensus23/Consensus23.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/com/protocols/twophase/TwoPhaseCommitTests.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41002277">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding>
             <element signature="e#32#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/com/protocols/consensus23/Consensus23Tests.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46127564">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="e#35#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

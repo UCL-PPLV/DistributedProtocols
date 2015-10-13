@@ -25,7 +25,7 @@ class Consensus23Tests(_system: ActorSystem) extends TestKit(_system) with Impli
     }
 
     s"agree on the same non-taken value" in {
-      val values = List(1, 2, 5, 5, 5, 5, 4)
+      val values = List(1, 5, 5, 4)
       setupAndTestRound(1, values, None)
     }
 
