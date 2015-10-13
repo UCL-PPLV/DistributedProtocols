@@ -11,14 +11,14 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * Synchrony via rounds
  */
-sealed trait RoundMessage {
+sealed trait Consensus23Message {
   val round: Int
 }
 
 // Different kinds of messages (all parametrized by rounds)
-case class DoSend(round: Int, arefs: Seq[ActorRef]) extends RoundMessage
-case class DoAsk(round: Int, id: ActorRef) extends RoundMessage
-case class DoTell[A](round: Int, value: Option[A], id: ActorRef) extends RoundMessage
+case class DoSend(round: Int, arefs: Seq[ActorRef]) extends Consensus23Message
+case class DoAsk(round: Int, id: ActorRef) extends Consensus23Message
+case class DoTell[A](round: Int, value: Option[A], id: ActorRef) extends Consensus23Message
 
 /**
  * Storing local results for a round

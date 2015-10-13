@@ -10,14 +10,6 @@ import scala.concurrent.duration._
  * @author ilya
  */
 
-//class TestNode[A](val round: Int, val expectedResult: Option[A]) extends Actor {
-//  override def receive = {
-//    case DoTell(r, vopt, id) if r == round =>
-//      println(s"At the round $round, actor $id responds with the stored value $vopt")
-//      assert(vopt == expectedResult, s"the result of consensus should be $expectedResult")
-//  }
-//}
-
 class Consensus23Tests(_system: ActorSystem) extends TestKit(_system) with ImplicitSender with WordSpecLike with MustMatchers with BeforeAndAfterAll {
 
   def this() = this(ActorSystem("Consensus23Tests"))
