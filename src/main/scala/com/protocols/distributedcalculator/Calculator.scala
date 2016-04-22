@@ -1,5 +1,10 @@
 import akka.actor._
-
+/**
+ * Calculator server actor -- Accepts computation requests and returns the
+ * result of the computation. Values must be integers and current supported
+ * operations are addition, subtraction, multiplication and division.
+ * (Calculation fails for division by 0)
+ */
 
 object Calculator {
 

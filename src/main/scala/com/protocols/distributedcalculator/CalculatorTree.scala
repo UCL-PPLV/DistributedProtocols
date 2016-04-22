@@ -1,6 +1,11 @@
 
 import akka.actor._
 
+/**
+ * Calculator Tree actor -- Accepts computation requests with parameters of
+ * type ExpressionTree, and spawns child actos to help compute result by
+ * sending requests to the Calculator actor.
+ */
 object CalculatorTree {
 
   trait ParseOperation {
@@ -12,7 +17,7 @@ object CalculatorTree {
 
   // Sent from parent actor/node
   case class Calculate(calculator: ActorRef, msg_id: Int, expr: Expr) extends ParseOperation
-
+  // Sent from child node
   case class Success(msg_id: Int, ans: Int) extends Calculator.SuccessfulResponse
 
 }
@@ -47,7 +52,7 @@ class CalculatorTree extends Actor{
                                           calculator = Some(calc)
                                           curr_msg_id = msg_id
                                           parseInput(expr)
-    // Receive value of own computation from calculator
+    // Receive value of own computation from calculator -- send back to parent
     case Calculator.Success(msg_id, result) if msg_id == curr_msg_id  =>
                                                parent.get ! Success(curr_msg_id, result)
     case Calculator.Failure(msg_id) if msg_id == curr_msg_id => parent.get ! Calculator.Failure(curr_msg_id)

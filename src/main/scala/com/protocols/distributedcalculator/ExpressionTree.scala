@@ -1,7 +1,20 @@
-import scala.util.control.Breaks._
+/**
+ * ExpressionTree -- Generates expression tree given input of mathematical
+ * expression of type String in polish format - (numbers must be integers)
+ *
+ * Examples:
+ * (+ 1 2)
+ * (* (+ 3 4) (- 8 4))
+ *  -- Note - parsing done on parentheses and throws error (hopefully) if
+ * parentheses are mismatched
+ *
+ */
+
 sealed abstract class Expr
 
+// lead node
 case class Const(val num: Int) extends Expr
+// Parent node of subtree
 case class BinaryOp(val op: String, val left: Expr, val right: Expr) extends Expr
 
 case class ExpressionTree(val inputExpr: String) extends Expr {
